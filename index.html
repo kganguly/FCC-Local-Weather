@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>FCC: Local Weather - v3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,900'>
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+  <div id="googleMap" class="centeredContainer"></div>
+
+  <div id="weather" class="centeredContainer">
+    <div class="column c1">
+      <div id="locality" class="infoModule">
+        <div id="locale">Local Weather</div>
+      </div>
+      <div id="temp" class="infoModule">
+        <div id="actualTemp"><span id="actualDegrees">48</span>&deg;<a id="actualUnits" class="tempUnits" href="#">F</a></div>
+        <div id="feelsLike">feels like <span id="feelDegrees">44</span>&deg;<a class="tempUnits">F</a></div>
+      </div>
+    </div>
+    <div class="column c2">
+      <div id="condition" class="infoModule">
+        <div id="conditionLabelDiv">
+          <div id="conditionLabel">Partly Cloudy</div>
+        </div>
+        <div id="conditionIconDiv"><img src="" alt="Icon" id="conditionIcon"></div>
+      </div>
+      <div id="wind" class="infoModule">
+        <div id="windSpeed">
+          <div id="windValue">48</div>
+          <div id="windUnits">mph</div>
+        </div>
+        <div id="windDir">N<br />E</div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <small>by <a href="https://www.freecodecamp.com/kganguly" target="_blank" class="signature">kaushik</a>
+    </small>
+  </footer>
+  <div id="alert" class="centeredContainer">
+    <span id="alertInfo"></span>
+    <button type="button" id="alertButton" class="btn btn-info">Retry</button>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBSDZ7V8rjAXpfTwKtWLavFDFKJhKWlLio'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
