@@ -10,6 +10,8 @@ function onResize() {
   adjustFont("#locale");
   reset("#conditionLabel");
   adjustFont("#conditionLabel")
+  reset("#wind");
+  if (isLandscape()) adjustSecondRow();
 }
 
 function reset(selector) {
@@ -157,6 +159,7 @@ function showWeather(response) {
     var iconUrl = current.icon_url.replace(/http:\/\//i, "https://");
     $("#conditionIcon").attr("src", iconUrl);
     adjustFont("#conditionLabel");
+    if (isLandscape()) adjustSecondRow();
     $("#weather").css("visibility", "visible");
     $("#weather").animate({ opacity: 1 }, 2250, "linear");
   }
@@ -212,13 +215,15 @@ function showAlert(info) {
 function adjustFont(selector) {
   var element = $(selector);
   var parent = element.parent();
-    //$('#fitin div').css('font-size', '1em');
-    //console.log("function: " + element[0].scrollWidth + ", " + parent.width());
-    //while( $('#locale')[0].scrollWidth > $('#locality').width() ) {
     while( element[0].scrollWidth > Math.ceil(parent.width()) ) {
-      //console.log("adjust: " + $('#locale').css("font-size"));
         element.css('font-size', (parseInt(element.css('font-size')) - 1) + "px" );
-      //console.log("adjust2: " + $('#locale').css("font-size"));
-      //console.log("function2: " + element[0].scrollWidth + ", " + parent.width());
     }
+}
+
+function isLandscape() {
+  return (($(window).width() > 500) && ($(window).height() < 450));
+}
+
+function adjustSecondRow() {
+  $("#wind").css('height', $('#temp').css('height'));
 }
